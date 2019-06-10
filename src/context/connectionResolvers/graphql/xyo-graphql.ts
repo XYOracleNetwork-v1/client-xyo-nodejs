@@ -2,6 +2,7 @@
 import { IConnectionResolver } from '../../xyo-connection-resolver'
 import { IXyoConnectionConfg } from '../../xyo-context-config'
 import { about } from './xyo-graphql-about'
+import { collectorStatsSummary } from './xyo-graphql-summary'
 import { request } from 'graphql-request'
 
 export const graphQlResolver: IConnectionResolver = {
@@ -23,7 +24,8 @@ export const graphQlResolver: IConnectionResolver = {
 }
 
 const allQueries: {[key: string]: <T>(config: IXyoConnectionConfg, command: string) =>  Promise<Array<{result: T, id: string}>> } = {
-  about
+  about,
+  collectorStatsSummary
 }
 
 const getAllSupportsFromSchema = async(endpoint: string) => {

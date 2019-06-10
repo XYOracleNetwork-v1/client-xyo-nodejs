@@ -1,5 +1,6 @@
 import { IXyoContextConfig } from './context/xyo-context-config'
 import { XyoContext } from './context/xyo-context'
+import { ICollectorStatsSummary } from './context/connectionResolvers/graphql/xyo-graphql-summary'
 
 const config: IXyoContextConfig = {
   name: 'Data Ocean',
@@ -16,10 +17,9 @@ const config: IXyoContextConfig = {
   ]
 }
 
-const context = new XyoContext(config)
-
 const main = async() => {
-  const result = await context.preform('about', '')
+  const context = new XyoContext(config)
+  const result = await context.preform<ICollectorStatsSummary>('collectorStatsSummary')
   console.log(result)
 }
 
