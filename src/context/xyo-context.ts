@@ -1,8 +1,16 @@
 // tslint:disable: prefer-array-literal
 import { IXyoContextConfig } from './xyo-context-config'
 import { Connection } from './xyo-connection'
+import requestPromise from 'request-promise'
 
 export class XyoContext {
+
+  public static async fetch(url: string): Promise<XyoContext> {
+    const contextAsString = await requestPromise(url)
+    const contextConfig = JSON.parse(contextAsString)
+    return new XyoContext(contextConfig)
+  }
+
   private set: XyoContext[] = []
   private connection: Connection | undefined
   private config: IXyoContextConfig

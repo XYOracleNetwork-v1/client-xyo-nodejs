@@ -1,6 +1,6 @@
 {
   "name": "@xyo-network/client-xyo-nodejs",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "A workspace to aggregated nodejs XYO projects",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "@types/node": "11.13.8",
+    "@types/request-promise": "^4.1.44",
     "@xyo-network/config-tslint": "^0.1.31",
     "enquirer": "^2.3.0",
     "license-checker": "^25.0.1",
@@ -23,7 +24,9 @@
   },
   "dependencies": {
     "@xyo-network/sdk-base-nodejs": "^0.3.10",
-    "graphql-request": "^1.8.2"
+    "graphql-request": "^1.8.2",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
   },
   "files": [
     "dist",
