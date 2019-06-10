@@ -23,6 +23,17 @@
 ## Project Overview
 
 ## Getting started
+```typescript
+import { XyoContext, IXyoCollectorStatsSummary } from '@xyo-network/client-xyo-nodejs'
+
+const main = async() => {
+  const context =  await XyoContext.fetch('http://contexts.xyo.network/dataOcean.context.json')
+  const result = await context.preform<IXyoCollectorStatsSummary>('collectorStatsSummary')
+  console.log(result)
+}
+
+main()
+```
 
 ## Developer Guide
 

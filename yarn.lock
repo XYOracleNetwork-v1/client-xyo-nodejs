@@ -87,6 +87,16 @@
   resolved "https://registry.yarnpkg.com/@types/tough-cookie/-/tough-cookie-2.3.5.tgz#9da44ed75571999b65c37b60c9b2b88db54c585d"
   integrity sha512-SCcK7mvGi3+ZNz833RRjFIxrn4gI1PPR3NtuIS+6vMkvmsGjosqTJwRt5bAEFLRz+wtJMWv8+uOnZf2hi2QXTg==
 
+"@xyo-network/client-xyo-nodejs@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@xyo-network/client-xyo-nodejs/-/client-xyo-nodejs-0.2.0.tgz#85a7f99160b382cd575fbd944cfc57f939127e89"
+  integrity sha512-ZaTysV3DidhqkEitNo/VZgxy90aApLrNVDg/PCiWNnSs86VEi09Y4BWmaOyV1o/hyRJHF4X7BiO17BIWZzhAHA==
+  dependencies:
+    "@xyo-network/sdk-base-nodejs" "^0.3.10"
+    graphql-request "^1.8.2"
+    request "^2.88.0"
+    request-promise "^4.2.4"
+
 "@xyo-network/config-tslint@^0.1.31":
   version "0.1.31"
   resolved "https://registry.yarnpkg.com/@xyo-network/config-tslint/-/config-tslint-0.1.31.tgz#c250d898536b6e5d68cfb5acb13e9ab3254ca306"
