@@ -1,16 +1,16 @@
 // tslint:disable: prefer-array-literal
 import { IConnectionResolver } from '../../xyo-connection-resolver'
-import { IXyoConnectionConfg } from '../../xyo-context-config'
+import { IXyoConnectionConfig } from '../../xyo-context-config'
 import { about } from './xyo-graphql-about'
 import { collectorStatsSummary } from './xyo-graphql-summary'
 import { request } from 'graphql-request'
 
 export const graphQlResolver: IConnectionResolver = {
-  canResolve: (config: IXyoConnectionConfg) => {
+  canResolve: (config: IXyoConnectionConfig) => {
     return config.interface === 'graphql'
   },
-  getSupports: async(config: IXyoConnectionConfg) => {
-    const supportedQueries: {[key: string]: <T>(config: IXyoConnectionConfg, command: string) =>  Promise<Array<{result: T, id: string}>> } = {}
+  getSupports: async(config: IXyoConnectionConfig) => {
+    const supportedQueries: {[key: string]: <T>(config: IXyoConnectionConfig, command: string) =>  Promise<Array<{result: T, id: string}>> } = {}
     const queryNames = await getAllSupportsFromSchema(config.uri)
 
     queryNames.forEach((queryName: string) => {
@@ -23,7 +23,7 @@ export const graphQlResolver: IConnectionResolver = {
   },
 }
 
-const allQueries: {[key: string]: <T>(config: IXyoConnectionConfg, command: string) =>  Promise<Array<{result: T, id: string}>> } = {
+const allQueries: {[key: string]: <T>(config: IXyoConnectionConfig, command: string) =>  Promise<Array<{result: T, id: string}>> } = {
   about,
   collectorStatsSummary
 }

@@ -1,13 +1,13 @@
-import { IXyoConnectionConfg } from './xyo-context-config'
+import { IXyoConnectionConfig } from './xyo-context-config'
 import { IConnectionResolver, resolveConnection } from './xyo-connection-resolver'
 
 export class Connection {
   public supports: string[] = []
   public onUpdate: (() => void) | undefined
-  private config: IXyoConnectionConfg
+  private config: IXyoConnectionConfig
   private resolver: IConnectionResolver | undefined
 
-  constructor(config: IXyoConnectionConfg) {
+  constructor(config: IXyoConnectionConfig) {
     this.resolver = resolveConnection(config)
     this.config = config
   }

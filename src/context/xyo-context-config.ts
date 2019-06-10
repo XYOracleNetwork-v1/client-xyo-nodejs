@@ -2,11 +2,11 @@ export interface IXyoContextConfig {
   name?: string
   description?: string
   operation?: 'intersection' | 'union' | 'product'
-  connection ?: IXyoConnectionConfg
+  connection ?: IXyoConnectionConfig
   sets?: IXyoContextConfig[]
 }
 
-export interface IXyoConnectionConfg {
+export interface IXyoConnectionConfig {
   'interface': 'json' | 'graphql' | 'socket' | 'gatt'
   uri: string
 }

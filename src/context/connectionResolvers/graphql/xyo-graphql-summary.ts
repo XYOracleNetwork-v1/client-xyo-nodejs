@@ -1,7 +1,7 @@
 import { request } from 'graphql-request'
-import { IXyoConnectionConfg } from '../../xyo-context-config'
+import { IXyoConnectionConfig } from '../../xyo-context-config'
 
-export interface ICollectorStatsSummary {
+export interface IXyoCollectorStatsSummary {
   allTimeBoundWitnesses: number,
   allTimeCollectedBoundWitnesses: number,
   allTimeCollectedPerBoundWitness: number,
@@ -13,7 +13,7 @@ export interface ICollectorStatsSummary {
   lastBoundWitnessTime: string
 }
 
-export const collectorStatsSummary = async(config: IXyoConnectionConfg, command: string) => {
+export const collectorStatsSummary = async(config: IXyoConnectionConfig, command: string) => {
   const query = `
       query Summary {
         collectorStatsSummary {

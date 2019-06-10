@@ -1,7 +1,7 @@
 import { request } from 'graphql-request'
-import { IXyoConnectionConfg } from '../../xyo-context-config'
+import { IXyoConnectionConfig } from '../../xyo-context-config'
 
-export const about = async(config: IXyoConnectionConfg, command: string) => {
+export const about = async(config: IXyoConnectionConfig, command: string) => {
   const query = `
       query About {
           about {
