@@ -1,3 +1,4 @@
+// tslint:disable: prefer-array-literal
 import { IXyoContextConfig } from './xyo-context-config'
 import { Connection } from './xyo-connection'
 
