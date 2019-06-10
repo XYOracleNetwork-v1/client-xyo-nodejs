@@ -1,4 +1,4 @@
-import { graphQlResolver } from './connection-resolvers/graphql/xyo-graphql'
+import { graphQlResolver } from './connectionResolvers/graphql/xyo-graphql'
 import { IXyoConnectionConfg } from './xyo-context-config'
 
 export interface IConnectionResolver {
