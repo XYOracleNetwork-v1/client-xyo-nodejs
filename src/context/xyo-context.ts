@@ -65,7 +65,7 @@ export class XyoContext {
     return connections
   }
 
-  public async preform <T>(type: string, command: string = ''): Promise<T[]> {
+  public async preform <T>(type: string, command: any = ''): Promise<T[]> {
     return (await this.run<T>(type, command)).map(a => a.result)
   }
 
