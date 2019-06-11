@@ -4,6 +4,8 @@ import { IXyoConnectionConfig } from '../../xyo-context-config'
 import { about } from './xyo-graphql-about'
 import { collectorStatsSummary } from './xyo-graphql-summary'
 import { blockByHash } from './xyo-graphql-block-by-hash'
+import { querySupport } from './xyo-graphql-query-support'
+import { queryFor } from './xyo-graphql-query'
 import { blockList } from './xyo-graphql-block-list'
 
 import { request } from 'graphql-request'
@@ -30,7 +32,9 @@ const allQueries: {[key: string]: <T>(config: IXyoConnectionConfig, command: str
   about,
   collectorStatsSummary,
   blockByHash,
-  blockList
+  blockList,
+  querySupport,
+  queryFor
 }
 
 const getAllSupportsFromSchema = async(endpoint: string) => {
