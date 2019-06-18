@@ -34,8 +34,8 @@ export * from './context/xyo-json-bound-witness'
 // import { XyoContext, IXyoCollectorStatsSummary } from '@xyo-network/client-xyo-nodejs'
 
 // const main = async() => {
-//   const context =  await XyoContext.fetch('http://contexts.xyo.network/dataOcean.context.json')
-//   const result = await context.preform<IXyoCollectorStatsSummary>('collectorStatsSummary')
+//   const context =  await XyoContext.fetch('http://contexts.xyo.network/data-ocean.context.json')
+//   const result = await context.preform<IXyoJsonBoundWitness>('blockByHash', '1N9g2gYHdMMQwzQdPaLezVqTQPwf4a7dKwYL646bPcFY9hn')
 //   console.log(result)
 // }
 

@@ -13,7 +13,7 @@ export class XyoContext {
 
   private set: XyoContext[] = []
   private connection: Connection | undefined
-  private config: IXyoContextConfig
+  public config: IXyoContextConfig
 
   constructor(config: IXyoContextConfig) {
     this.config = config
@@ -29,8 +29,30 @@ export class XyoContext {
     }
   }
 
+  public async getSupports(): Promise<string[]> {
+    const supportMap: {[key: string]: any} = {}
+    const connections = this.getAllConnections()
+
+    await Promise.all(connections.map(async(connection) => {
+      const resolver = connection.resolver
+
+      if (resolver) {
+        const supports = await resolver.getSupports(connection.config)
+        Object.keys(supports).forEach((support) => {
+          supportMap[support] = support
+        })
+      }
+    }))
+
+    return Object.keys(supportMap)
+  }
+
   public getOperator(): 'intersection' | 'union' | 'product' {
     return this.config.operation || 'union'
+  }
+
+  public getName(): string | undefined {
+    return this.config.name
   }
 
   public getDescription(): string | undefined {

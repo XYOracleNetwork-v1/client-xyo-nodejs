@@ -4,8 +4,8 @@ import { IConnectionResolver, resolveConnection } from './xyo-connection-resolve
 export class Connection {
   public supports: string[] = []
   public onUpdate: (() => void) | undefined
-  private config: IXyoConnectionConfig
-  private resolver: IConnectionResolver | undefined
+  public config: IXyoConnectionConfig
+  public resolver: IConnectionResolver | undefined
 
   constructor(config: IXyoConnectionConfig) {
     this.resolver = resolveConnection(config)

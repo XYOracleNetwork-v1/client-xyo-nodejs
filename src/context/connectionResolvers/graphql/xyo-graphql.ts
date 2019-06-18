@@ -3,10 +3,14 @@ import { IConnectionResolver } from '../../xyo-connection-resolver'
 import { IXyoConnectionConfig } from '../../xyo-context-config'
 import { about } from './xyo-graphql-about'
 import { collectorStatsSummary } from './xyo-graphql-summary'
+import { collectorStatsSummaryHistorical } from './xyo-graphql-summary-historical'
 import { blockByHash } from './xyo-graphql-block-by-hash'
 import { querySupport } from './xyo-graphql-query-support'
 import { queryFor } from './xyo-graphql-query'
 import { blockList } from './xyo-graphql-block-list'
+import { credits } from './xyo-graphql-credits'
+import { payTo } from './xyo-graphql-pay-to'
+import { ethRedeem } from './xyo-graphql-eth'
 
 import { request } from 'graphql-request'
 
@@ -34,7 +38,11 @@ const allQueries: {[key: string]: <T>(config: IXyoConnectionConfig, command: str
   blockByHash,
   blockList,
   querySupport,
-  queryFor
+  queryFor,
+  collectorStatsSummaryHistorical,
+  credits,
+  payTo,
+  ethRedeem
 }
 
 const getAllSupportsFromSchema = async(endpoint: string) => {
