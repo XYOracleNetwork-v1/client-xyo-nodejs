@@ -3,7 +3,7 @@ import { IXyoConnectionConfig } from './xyo-context-config'
 
 export interface IConnectionResolver {
   // tslint:disable-next-line:prefer-array-literal
-  getSupports(config: IXyoConnectionConfig): Promise<{[key: string]: <T>(config: IXyoConnectionConfig, command: string) =>  Promise<Array<{result: T, id: string}>> }>
+  getSupports(config: IXyoConnectionConfig): Promise<{[key: string]: <T>(config: IXyoConnectionConfig, command: any) =>  Promise<Array<{result: T, id: string}>> }>
   canResolve(config: IXyoConnectionConfig): boolean
 }
 
