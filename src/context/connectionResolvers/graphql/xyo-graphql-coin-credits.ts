@@ -1,19 +1,19 @@
 import { request } from 'graphql-request'
 import { IXyoConnectionConfig } from '../../xyo-context-config'
 
-export const credits = async(config: IXyoConnectionConfig, command: string) => {
+export const coinCredits = async(config: IXyoConnectionConfig, command: string) => {
   const query = `
-      query Credits($apiKey: String!) {
-        credits(apiKey: $apiKey)
+      query CoinCredits($token: String!) {
+        coinCredits(token: $token)
       }
     `
 
   const result = await request(config.uri, query, {
-    apiKey: command
+    token: command
   }) as any
 
   return [{
-    result: result.credits,
+    result: result.coinCredits,
     id: config.uri
   }]
 }

@@ -9,6 +9,7 @@ import { querySupport } from './xyo-graphql-query-support'
 import { queryFor } from './xyo-graphql-query'
 import { blockList } from './xyo-graphql-block-list'
 import { credits } from './xyo-graphql-credits'
+import { coinCredits } from './xyo-graphql-coin-credits'
 import { payTo } from './xyo-graphql-pay-to'
 import { ethRedeem } from './xyo-graphql-eth'
 
@@ -42,7 +43,8 @@ const allQueries: {[key: string]: <T>(config: IXyoConnectionConfig, command: str
   collectorStatsSummaryHistorical,
   credits,
   payTo,
-  ethRedeem
+  ethRedeem,
+  coinCredits
 }
 
 const getAllSupportsFromSchema = async(endpoint: string) => {

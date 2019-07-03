@@ -13,6 +13,6 @@ export const ethRedeem = async(config: IXyoConnectionConfig, command: any) => {
 
   return [{
     result: result.ethRedeem,
-    id: result.about.address
+    id: JSON.stringify(result.ethRedeem)
   }]
 }
