@@ -13,6 +13,7 @@ import { coinCredits } from './xyo-graphql-coin-credits'
 import { payTo } from './xyo-graphql-pay-to'
 import { ethRedeem } from './xyo-graphql-eth'
 import { rewards } from './xyo-graphql-rewards'
+import { topRewards } from './xyo-graphql-top-rewards'
 
 import { request } from 'graphql-request'
 
@@ -47,6 +48,7 @@ const allQueries: {[key: string]: <T>(config: IXyoConnectionConfig, command: str
   ethRedeem,
   coinCredits,
   rewards,
+  topRewards
 }
 
 const getAllSupportsFromSchema = async(endpoint: string) => {
