@@ -20,10 +20,10 @@
     "typescript": "^3.5.1"
   },
   "dependencies": {
-    "@xyo-network/sdk-base-nodejs": "^0.5.12",
+    "@xyo-network/sdk-base-nodejs": "^0.6.1",
     "graphql-request": "^1.8.2",
     "request": "^2.88.0",
-    "request-promise": "^4.2.4"
+    "request-promise": "^4.2.5"
   },
   "files": [
     "dist",
