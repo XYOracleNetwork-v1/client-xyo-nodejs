@@ -1,6 +1,6 @@
 {
   "name": "@xyo-network/client-xyo-nodejs",
-  "version": "0.4.6",
+  "version": "0.4.7",
   "description": "A workspace to aggregated nodejs XYO projects",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -14,7 +14,7 @@
     "enquirer": "^2.3.0",
     "license-checker": "^25.0.1",
     "shelljs": "^0.8.3",
-    "ts-jest": "^24.0.0",
+    "ts-jest": "^25.4.0",
     "ts-node": "8.2.0",
     "tslint": "^5.17.0",
     "typescript": "^3.5.1"
