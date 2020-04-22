@@ -1,6 +1,6 @@
 {
   "name": "@xyo-network/client-xyo-nodejs",
-  "version": "0.4.7",
+  "version": "0.4.8",
   "description": "A workspace to aggregated nodejs XYO projects",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -10,13 +10,16 @@
   "devDependencies": {
     "@types/node": "12.0.7",
     "@types/request-promise": "^4.1.44",
-    "@xyo-network/config-tslint": "^0.1.31",
     "enquirer": "^2.3.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-prettier": "^3.1.3",
     "license-checker": "^25.0.1",
+    "prettier": "^2.0.5",
     "shelljs": "^0.8.3",
     "ts-jest": "^25.4.0",
-    "ts-node": "8.2.0",
-    "tslint": "^5.17.0",
+    "ts-node": "8.6.2",
     "typescript": "^3.5.1"
   },
   "dependencies": {
