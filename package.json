@@ -1,15 +1,20 @@
 {
   "name": "@xyo-network/client-xyo-nodejs",
-  "version": "0.4.8",
+  "version": "0.4.9",
   "description": "A workspace to aggregated nodejs XYO projects",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "author": "XY Development Team",
   "license": "LGPL-3.0",
-  "scripts": {},
+  "scripts": {
+    "lint": "yarn eslint . --ext .js,.jsx,.ts,.tsx",
+    "build": "yarn xybuild"
+  },
   "devDependencies": {
     "@types/node": "12.0.7",
     "@types/request-promise": "^4.1.44",
+    "@typescript-eslint/eslint-plugin": "^2.29.0",
+    "@typescript-eslint/parser": "^2.29.0",
     "enquirer": "^2.3.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.11.0",
@@ -21,6 +26,11 @@
     "ts-jest": "^25.4.0",
     "ts-node": "8.6.2",
     "typescript": "^3.5.1"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "jsxSingleQuote": true
   },
   "dependencies": {
     "@xyo-network/sdk-base-nodejs": "^0.6.1",

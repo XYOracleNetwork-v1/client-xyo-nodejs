@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { XyoContext } from '../context/xyo-context'
 import { IXyoJsonBoundWitness } from '../context/xyo-json-bound-witness'
 
@@ -10,26 +12,64 @@ const latestBlockQueryBuilder: QueryBuilder = (key: string) => {
       config: {
         fromTime: new Date().getTime(),
         limit: Math.floor(Math.random() * 500) + 1,
-      }
+      },
     },
     mutate: {
       name: 'MUTATOR_HUMAN',
       config: {},
     },
     payment: {
-      apiKey: key
-    }
+      apiKey: key,
+    },
   }
 }
 
 const geohashQueryBuilder: QueryBuilder = (key: string) => {
   const base32 = [
-    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',  'U', 'V', 'W', 'X', 'Y', 'Z',
-    '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'
+    'A',
+    'B',
+    'C',
+    'D',
+    'E',
+    'F',
+    'G',
+    'H',
+    'I',
+    'J',
+    'K',
+    'L',
+    'M',
+    'N',
+    'O',
+    'P',
+    'Q',
+    'R',
+    'S',
+    'T',
+    'U',
+    'V',
+    'W',
+    'X',
+    'Y',
+    'Z',
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '10',
   ]
 
-  const g1 = base32[Math.floor(Math.random() * (base32.length - 1))].toLowerCase()
-  const g2 = base32[Math.floor(Math.random() * (base32.length - 1))].toLowerCase()
+  const g1 = base32[
+    Math.floor(Math.random() * (base32.length - 1))
+  ].toLowerCase()
+  const g2 = base32[
+    Math.floor(Math.random() * (base32.length - 1))
+  ].toLowerCase()
   const geohash = g1 + g2
 
   console.log(`Geohash ${geohash}`)
@@ -40,15 +80,15 @@ const geohashQueryBuilder: QueryBuilder = (key: string) => {
       config: {
         geohash,
         limit: Math.floor(Math.random() * 2000) + 1,
-      }
+      },
     },
     mutate: {
       name: 'MUTATOR_HUMAN',
       config: {},
     },
     payment: {
-      apiKey: key
-    }
+      apiKey: key,
+    },
   }
 }
 
@@ -68,7 +108,7 @@ export class XyoQueryCall {
     this.key = apiKey
   }
 
-  public start = async() => {
+  public start = async () => {
     console.log('Starting...')
 
     let i = 0
@@ -79,7 +119,7 @@ export class XyoQueryCall {
     }
   }
 
-  private loop = async(it: number) => {
+  private loop = async (it: number) => {
     console.log('------------------------------')
     const credits = await this.getNumberOfCredits()
     console.log(`Credits ${credits}`)
@@ -94,7 +134,10 @@ export class XyoQueryCall {
     const query = runner(this.key)
 
     try {
-      const blocks = (await this.context.preform<IXyoJsonBoundWitness>('queryFor', query))
+      const blocks = await this.context.preform<IXyoJsonBoundWitness>(
+        'queryFor',
+        query
+      )
       console.log(`Queried ${blocks.length} bound witnesses`)
     } catch (e) {
       console.log(e)
@@ -107,13 +150,15 @@ export class XyoQueryCall {
     })
   }
 
-  public getNumberOfCredits = async(): Promise<number> => {
+  public getNumberOfCredits = async (): Promise<number> => {
     return (await this.context.preform<number>('credits', this.key))[0]
   }
 }
 
-const main = async() => {
-  const context = await XyoContext.fetch('https://contexts.xyo.network/data-ocean-diviner.context.json')
+const main = async () => {
+  const context = await XyoContext.fetch(
+    'https://contexts.xyo.network/data-ocean-diviner.context.json'
+  )
   const query = new XyoQueryCall(context, process.argv[2])
   query.start()
 }

@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { request } from 'graphql-request'
 import { IXyoConnectionConfig } from '../../xyo-context-config'
 
-export const queryFor = async(config: IXyoConnectionConfig, command: any) => {
+export const queryFor = async (config: IXyoConnectionConfig, command: any) => {
   const query = `
         query Query($queryString: String!) {
             queryFor(query: $queryString)
@@ -10,21 +12,21 @@ export const queryFor = async(config: IXyoConnectionConfig, command: any) => {
 
   command.mutate = {
     name: 'MUTATOR_HUMAN',
-    config: {}
+    config: {},
   }
 
-  const result = await request(config.uri, query, {
+  const result = (await request(config.uri, query, {
     queryString: JSON.stringify(command),
-  }) as any
+  })) as any
 
   return result.queryFor.map((result: any) => {
     return {
       result: {
         signedHash: result.hash,
         bytes: result.bytes,
-        humanReadable: result.human.value
+        humanReadable: result.human.value,
       },
-      id: result.hash
+      id: result.hash,
     }
   })
 }

@@ -1,5 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { IXyoConnectionConfig } from './xyo-context-config'
-import { IConnectionResolver, resolveConnection } from './xyo-connection-resolver'
+import {
+  IConnectionResolver,
+  resolveConnection,
+} from './xyo-connection-resolver'
 
 export class Connection {
   public supports: string[] = []
@@ -12,7 +16,7 @@ export class Connection {
     this.config = config
   }
 
-  public async preform <T>(type: string, command: any): Promise<T | undefined> {
+  public async preform<T>(type: string, command: any): Promise<T | undefined> {
     if (this.resolver) {
       const supports = await this.resolver.getSupports(this.config)
       const runner = supports[type]
@@ -32,7 +36,10 @@ export class Connection {
   }
 
   // tslint:disable-next-line:prefer-array-literal
-  public async run <T>(type: string, command: any): Promise<Array<{result: T, id: string}> | undefined> {
+  public async run<T>(
+    type: string,
+    command: any
+  ): Promise<Array<{ result: T; id: string }> | undefined> {
     if (this.resolver) {
       const supports = await this.resolver.getSupports(this.config)
       const runner = supports[type]

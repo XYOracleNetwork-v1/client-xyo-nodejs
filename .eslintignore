@@ -9,3 +9,4 @@ test/
 tools/
 rollup.config.ts
 bin/
+dist

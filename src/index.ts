@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { XyoContext } from './context/xyo-context'
 import { IXyoJsonBoundWitness } from './context/xyo-json-bound-witness'
 
