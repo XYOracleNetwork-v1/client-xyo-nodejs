@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@xyo-network/sdk-base-nodejs": "^0.6.1",
-    "graphql-request": "^1.8.2",
+    "graphql-request": "^2.0.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.5",
     "snyk": "^1.316.1"
